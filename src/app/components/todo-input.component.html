@@ -1,0 +1,48 @@
+<form [formGroup]="todoForm" (ngSubmit)="addTask()">
+
+    <table>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <mat-form-field>
+                    <mat-label>Task Description</mat-label>
+                        <input type="text" size="30" formControlName="description" matInput placeholder="Ex. Running">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Due Date:</td>
+            <td>
+                <mat-form-field>
+                <input matInput [matDatepicker]="picker" formControlName="dueDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-label>Due Date</mat-label>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>Priority:</td>
+            <td>
+                <mat-radio-group formControlName="priority">
+                    <mat-radio-button value="Low">Low</mat-radio-button>
+                    <mat-radio-button value="Med">Med</mat-radio-button>
+                    <mat-radio-button value="High">High</mat-radio-button>
+                  </mat-radio-group>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <button mat-raised-button type="submit" color="primary">Add</button>
+                
+            </td>
+        </tr>
+    </table>
+
+</form>
